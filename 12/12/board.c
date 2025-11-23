@@ -10,7 +10,6 @@
 int board_initBoard(void);
 int board_getBoardStatus(int pos);
 int board_getSharkPosition(void);
-int board_stepShark(void);
 int board_getBoardCoin(int pos);
 #endif
 
@@ -32,9 +31,10 @@ int board_stepShark(void)
     {
         int posIdx = shark_position + i + 1;
         if (posIdx >= 0)
-        board_status[posIdx] = BOARDSTATUS_NOK;
+            board_status[posIdx] = BOARDSTATUS_NOK;
     }
     shark_position += step;
+    return shark_position;
 }
 
 void board_printBoardStatus(void)
